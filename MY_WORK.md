@@ -132,16 +132,16 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 24, 2026, 9:51]
+**What I did**:I created my own fork of the assignment repository and updated my student ID
 
-**Details**:
+**Details**:I renamed the repository to OS-Assignment3-Wasan-Almutairi and checked that it was public, Then I opened SchedulerSimulationSync.java, changed the student ID, and saved my changes with a commit
 
-**Challenges**:
+**Challenges**:I did not face any challenges while completing part 1
 
-**Solution**:
+**Solution**:No solution were needed because i did not face any challenges
 
-**Time spent**:
+**Time spent**: 40 minutes
 
 ---
 
