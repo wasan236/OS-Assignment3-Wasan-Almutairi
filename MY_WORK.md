@@ -132,7 +132,7 @@
 
 ## Your Development Log
 
-### Entry 1 - [October 24, 2026, 9:51]
+### Entry 1 - [October 24, 2026, 9:51 AM]
 **What I did**:I created my own fork of the assignment repository and updated my student ID
 
 **Details**:I renamed the repository to OS-Assignment3-Wasan-Almutairi and checked that it was public, Then I opened SchedulerSimulationSync.java, changed the student ID, and saved my changes with a commit
@@ -145,16 +145,16 @@
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 25, 2026, 9:45 AM]
+**What I did**:Implemented Features 1, 2, and 3
 
-**Details**:
+**Details**: I used ReentrantLock to protect the ready queue and shared statistics from race conditions, I also used Semaphore to replace busy waiting and added a mechanism to wake waiting CPUs when all processes finish, The simulation passed all four verification checks
 
-**Challenges**:
+**Challenges**:Synchronizing multiple CPU threads and ensuring correct shutdown
 
-**Solution**:
+**Solution**:Used locks and a counting semaphore to protect shared data and coordinate CPU threads
 
-**Time spent**:
+**Time spent**: 3 hours and 15 minutes
 
 ---
 
