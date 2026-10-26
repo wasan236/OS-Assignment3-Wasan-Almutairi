@@ -158,16 +158,16 @@
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 26, 2026, 10:50]
+**What I did**: Completed the four reflection questions
 
-**Details**:
+**Details**: I answered the four reflection questions in Part 3 and committed my changes to GitHub
 
-**Challenges**:
+**Challenges**: making sure the answers followed the required number of sentences
 
-**Solution**:
+**Solution**: I reviewed the questions and checked my answers to make sure they followed the required number of sentences
 
-**Time spent**:
+**Time spent**: 50 minutes
 
 ---
 
