@@ -32,10 +32,10 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
+| **Full Name** | [Wasan Nasser Al-Mutairi] |
+| **Student ID** | [446051554] |
+| **University Email** | 446051554@std.psau.edu.sa |
+| **GitHub Username** | [wasan236] |
 | **Repository Link** | [Paste your repository link here] |
  
 ---
@@ -240,7 +240,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned that synchronization is important when many CPU threads work at the same time, without locks two threads can change the same data and cause wrong results, i used ReentrantLock to protect the ready queue and shared statistics, i also learned that try/finally helps make sure the lock is released after using it, the semaphore helps CPUs wait when there are no processes in the queue instead of checking again all the time, after making these changes all four verification checks passed in my final run]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -248,7 +248,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part of this assignment was understanding how the semaphore works, in the first i found it difficult to understand how CPUs wait when the ready queue is empty, also i had to make sure that all CPUs stop when all processes finish, this was important because a CPU could wait forever if it was not notified, i solved this by using the semaphore to wake up the waiting CPUs when all processes were completed, after testing the program, all four verification checks passed]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -256,7 +256,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I overcame the challenges by working on each feature step by step, i checked the code and made sure i understood where to add the changes, i ran the program after making the changes to check if it worked correctly, also i checked the output to make sure all verification checks passed, when i did not understand something, i go back to the slides to find the answer, this helped me understand the features better]
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -264,7 +264,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Synchronization can be used in many real applications, like banking apps and ticket booking systems, in banking apps locks can protect the account balance when two transactions happen at the same time, in ticket booking systems synchronization helps prevent two people from booking the same seat, also a semaphore can be used in a print queue to manage the jobs waiting for the printer, this is similar to my project where CPUs share the same ready queue, i learned that synchronization helps keep shared data correct when many threads work at the same time]
 
 ### Optional: What would you like to learn more about?
 
