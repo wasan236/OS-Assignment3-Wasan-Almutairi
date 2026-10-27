@@ -158,7 +158,7 @@
 
 ---
 
-### Entry 3 - [October 26, 2026, 10:50]
+### Entry 3 - [October 26, 2026, 10:50 AM]
 **What I did**: Completed the four reflection questions
 
 **Details**: I answered the four reflection questions in Part 3 and committed my changes to GitHub
@@ -171,16 +171,16 @@
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 27, 2026, 2:10 PM]
+**What I did**:Completed Part C Technical Answers
 
-**Details**:
+**Details**:i answered the four technical questions using my code and output, and reviewed my answers based on the assignment instructions
 
-**Challenges**:
+**Challenges**:Understanding the deadlock and lock granularity concepts
 
-**Solution**:
+**Solution**:i reviewed the code and the slides to understand the concepts and check my answers
 
-**Time spent**:
+**Time spent**: 1 hour and 10 minutes
 
 ---
 
