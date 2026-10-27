@@ -298,20 +298,31 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A race condition happens when two threads access or change the same shared data at the same time, in my original output CPU-1 and CPU-2 and CPU-3 all picked P1 from the ready queue, and CPU-1 and CPU-2 got an IllegalThreadStateException, the expected context switches were 24 but the observed value was 20, and the completed processes were 9 instead of 11, the same problem can happen on a real machine without RaceWindow because threads can be interrupted between reading and writing shared data, it is hard to detect because the timing of threads changes and the error may not happen in every run]
 
 Verification block of the **original starter**:
 ```
-[Paste the verification block (or the exception/watchdog message) of the starter here]
+[??? VERIFICATION (expected values are computed from YOUR seed) ???
+  Context switches (quanta executed)     expected 24       observed 20       ? MISMATCH
+  Completed processes                    expected 11       observed 9        ? MISMATCH
+  Total service time (ms)                expected 85740    observed 69938    ? MISMATCH
+  Busy-waiting polls (must be 0)         expected 0        observed 834      ? MISMATCH
+  ? At least one check failed (see the ? lines above): a race condition or busy waiting is still present.]
 ```
 
 Verification block of **my final version**:
 ```
-[Paste the verification block of your final version here (all lines ✔)]
+[
+??? VERIFICATION (expected values are computed from YOUR seed) ???
+  Context switches (quanta executed)     expected 24       observed 24       ?
+  Completed processes                    expected 11       observed 11       ?
+  Total service time (ms)                expected 85740    observed 85740    ?
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ?
+  ? All shared values are consistent.]
 ```
 
 **Explanation of the timeline:**
-[Explain the lost update step by step.]
+[CPU-1 reads contextSwitchCount as 12, then CPU-2 reads the same value before CPU-1 updates it, CPU-1 writes 13, then CPU-2 also writes 13, so one update is lost and the final value is 13 instead of 14]
 
 ## Question 2: Critical Sections and Lock Granularity
 
@@ -321,12 +332,17 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[I used one ReentrantLock called statsLock to protect the three shared statistics, this makes the code easier to manage, but updating one statistic can make another thread wait even if it updates a different statistic, i used a separate lock called queueLock for the ready queue because it protects different data, using separate locks avoids unnecessary waiting between queue operations and statistics updates, both locks provide mutual exclusion, and threads can make progress when the locks are released,The default ReentrantLock is not fair, so a thread may wait longer than others, and acquiring locks in different orders can cause a deadlock]
 
 | Critical section (variable / method) | Lock used | Why it needs protection |
-|---|---|---|
-| [e.g., `ReadyQueue.poll()`] | [lock name] | [reason] |
-| [...] | [...] | [...] |
+|contextSwitchCount and incrementContextSwitch() | statsLock |to prevent lost updates when CPUs increase the counter|
+|completedProcessCount and incrementCompletedProcess()| statsLock |to keep the completed process count correct|
+|totalServiceTime and addServiceTime() | statsLock |to prevent incorrect updates to the total service time|
+|getContextSwitchCount(), getCompletedProcessCount(), getTotalServiceTime()| statsLock |to protect shared statistics when reading them|
+|ReadyQueue.add()| queueLock |to safely add threads to the list and map|
+|ReadyQueue.poll()| queueLock |to prevent CPUs from removing the same queue item|
+|ReadyQueue.processOf()| queueLock |to safely access the process map|
+|ReadyQueue.snapshot()| queueLock |to safely read the queue contents|
 
 ## Question 3: Busy Waiting vs Semaphore
 
@@ -336,7 +352,7 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In the original starter, CPUs kept checking the ready queue when it was empty, and in my output busy-waiting was 834 , this wastes CPU time because the CPUs keep checking instead of waiting, in my final version the semaphore starts at 0 because there are no processes in the queue at the beginning, after the 11 initial add() calls, its value becomes 11 because there are 11 processes ready to run, when all processes finish, the last CPU calls release(totalCPUs) to wake up waiting CPUs, otherwise they could stay blocked in acquire() forever]
 
 ## Question 4: Classical Problems and Deadlock
 
@@ -345,15 +361,17 @@ Verification block of **my final version**:
 > 💡 **TIP:** Recall the bounded-buffer solution of the slides (`empty`, `full`, `mutex`) and the order of `wait()` calls in the producer and the consumer. For the deadlock, think about a producer that holds the mutex while waiting for a free slot that only a consumer (who needs the mutex) can create.
 
 **Your Answer:** *(3-5 sentences)*
-
+The ready queue is similar to the producer-consumer problem, the CPUs act as consumers when they take processes from the queue and as producers when they add unfinished processes back to it, if the queue has a fixed capacity K, we need three semaphores called empty and full and mutex, with initial values K, 0, 1, a deadlock can happen if a producer holds the mutex while waiting for an empty slot, because the consumer needs the mutex to remove a process and free a slot, to prevent this we should wait for an empty slot before locking the queue, which breaks the hold-and-wait condition
 **Classical problem and roles**:
-[Name the problem; who is the producer, who is the consumer?]
+[The producer-consumer problem, CPUs are consumers when they take processes from the ready queue, and they are producers when they add unfinished processes back to the queue]
 
 **Semaphores for a bounded queue (name and initial value)**:
-[Name the three semaphores and their initial values.]
+[empty = K because the queue has K empty slots at the beginning
+full = 0 because the queue starts empty
+mutex = 1 to allow one thread at a time to access the queue]
 
 **Deadlock scenario and prevention**:
-[Describe the scenario and the necessary condition you would break.]
+[A producer holds the mutex while waiting for an empty slot, but the queue is full, so a consumer cannot remove a process because it also needs the mutex, this causes a deadlock, we can prevent it by waiting for an empty slot before acquiring the mutex, which breaks the hold-and-wait condition]
 
 ## Summary
 
