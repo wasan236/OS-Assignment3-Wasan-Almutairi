@@ -184,16 +184,16 @@
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 28, 2026, 3:20  PM]
+**What I did**:Recorded and uploaded the Assignment 3 demo video
 
-**Details**:
+**Details**:i recorded the video showing the three features, the program execution in VS Code, the verification results, and my GitHub commit history
 
-**Challenges**:
+**Challenges**:Explaining all the required parts of the assignment within the 2 to 3 minute time limit
 
-**Solution**:
+**Solution**:i removed an unnecessary part , and the final video was 2 minutes and 37 seconds
 
-**Time spent**:
+**Time spent**:1 hour and 35 minutes
 
 ---
 
@@ -214,7 +214,7 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [7 hours and 30 minutes]
 
 **Most challenging part**: Understand how to synchronize the CPUs and protect the shared ready queue without causing race conditions
 
