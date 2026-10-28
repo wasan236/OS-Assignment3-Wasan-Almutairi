@@ -36,7 +36,7 @@
 | **Student ID** | [446051554] |
 | **University Email** | 446051554@std.psau.edu.sa |
 | **GitHub Username** | [wasan236] |
-| **Repository Link** | [Paste your repository link here] |
+| **Repository Link** | [GitHub Repository](https://github.com/wasan236/OS-Assignment3-Wasan-Almutairi) |
  
 ---
 
@@ -216,11 +216,11 @@
 
 **Total time spent on assignment**: [X hours]
 
-**Most challenging part**:
+**Most challenging part**: Understand how to synchronize the CPUs and protect the shared ready queue without causing race conditions
 
-**Most interesting learning**:
+**Most interesting learning**:Learning how ReentrantLock and Semaphore work together to prevent race conditions and busy waiting
 
-**What I would do differently next time**:
+**What I would do differently next time**:I would prepare what I need to say in the video before recording, so i can explain all the required parts clearly and finish within the time limit
 
 ---
 
@@ -376,13 +376,13 @@ mutex = 1 to allow one thread at a time to access the queue]
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.Race conditions and lost updates
+2.ReentrantLock and critical sections
+3.Semaphores and busy waiting
 
 **Concepts I need to study more:**
-1.
-2.
+1.Deadlock prevention
+2.Lock granularity
 
 ---
 
